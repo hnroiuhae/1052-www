@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="easy-sidebar-active"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<title>Bootstrap Easy Sidebar Example</title>
+<link rel="stylesheet" href="Bootstrap%20Easy%20Sidebar%20Example_files/bootstrap.css" type="text/css">
+<link rel="stylesheet" href="Bootstrap%20Easy%20Sidebar%20Example_files/easy-sidebar.css" type="text/css">
+</head>
+
+<body class="">
+<!--easy-sidebar-right -->
+<nav class="navbar navbar-inverse easy-sidebar">
+  <div class="container-fluid"> 
+    <div class="navbar-header">
+       <!--easy-sidebar-toggle-right -->
+      <button type="button" class="navbar-toggle easy-sidebar-toggle" aria-expanded="false"> 
+        <span class="sr-only">Toggle navigation</span> 
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a> 
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Link</a></li>
+      <li><a href="#">Link</a></li>
+    </ul>
+  </div>
+  <!-- /.container-fluid --> 
+</nav>
+
+<div class="container">
+  <h1>Bootstrap Easy Sidebar Example</h1>
+  <!--easy-sidebar-toggle-right -->
+  <button class="btn btn-danger easy-sidebar-toggle">Toggle Sidebar</button>
+</div>
+
+<script src="Bootstrap%20Easy%20Sidebar%20Example_files/jquery-1.js"></script> 
+<script src="Bootstrap%20Easy%20Sidebar%20Example_files/bootstrap.js"></script> 
+<script>
+//easy-sidebar-toggle-right
+$('.easy-sidebar-toggle').click(function(e) {
+    e.preventDefault();
+   //$('body').toggleClass('toggled-right');
+    $('body').toggleClass('toggled');
+   //$('.navbar.easy-sidebar-right').removeClass('toggled-right');
+    $('.navbar.easy-sidebar').removeClass('toggled');
+});
+</script>
+
+
+</body></html>
