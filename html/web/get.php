@@ -13,7 +13,7 @@ if(isset($_SESSION['login'])) {
     <title>金門領酒系統 - 領酒頁面</title>
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="./css/mainstyle.css" rel="stylesheet">
-
+    <link rel="import" href="./page/modals.php">
   </head>
 
   <body>
@@ -127,32 +127,14 @@ if(isset($_SESSION['login'])) {
       <script src="../dist/js/bootstrap.min.js"></script>
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
-      <!-- Modal -->
-      <div id="CheckGetModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <form action="got.php" method="GET">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">領酒確認</h3>
-              </div>
-              <div class="modal-body">
-                <input type="hidden" class="form-control" id="aid" name="aid" value="" />
-                <input type="hidden" class="form-control" id="confirm" name="confirm" value="" />
-                <div class="form-group">
-                  <h1>您確認要領酒嗎?</h1>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='./get.php' ">關閉</button>
-                <button type="submit" class="btn btn-primary btn-lg" onclick="">確認</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-      <!--Modal End-->
+      <!-- Custom Modal for this -->
+      <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+      </script>
       <script>
         $('#CheckGetModal').on('show.bs.modal', function(event) {
           var button = $(event.relatedTarget)
@@ -182,7 +164,7 @@ else {
       <title>金門領酒系統 - 領酒頁面</title>
       <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
       <link href="./css/mainstyle.css" rel="stylesheet">
-
+      <link rel="import" href="./page/modals.php">
     </head>
 
     <body>
@@ -194,27 +176,14 @@ else {
       <script src="../dist/js/bootstrap.min.js"></script>
       <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
       <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
-      <!-- Modal -->
-      <div id="NoLoginModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h3 class="modal-title">登入狀態</h3>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <h1>請先登入!</h1>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='./index.php'">確認</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Modal End-->
+      <!-- Custom Modal for this -->
+      <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+      </script>
       <script>
         $("#NoLoginModal").modal('show');
       </script>

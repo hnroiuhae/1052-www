@@ -15,7 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="./css/mainstyle.css" rel="stylesheet">
-
+    <link rel="import" href="./page/modals.php">
   </head>
 
   <body>
@@ -261,46 +261,14 @@ foreach ($arr as $i => $v) { if(!$register[$i]) {
       <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
       <!-- Custom JS for this -->
       <!--script src="XXX.js"></script-->
-
       <!-- Custom Modal for this -->
-      <!-- Modal -->
-      <div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="LoginModalLabel">帳戶登入</h4>
-            </div>
-            <div class="modal-body">
-              <form action="login.php" method="POST">
-                <input type="hidden" class="form-control" id="userid_hidden" name="userid">
-                <fieldset disabled>
-                  <div class="form-group">
-                    <label for="username" class="control-label">User ID:</label>
-                    <input type="text" class="form-control" id="userid">
-                  </div>
-                </fieldset disabled>
-                <fieldset disabled>
-                  <div class="form-group">
-                    <label for="username" class="control-label">Username:</label>
-                    <input type="text" class="form-control" id="username">
-                  </div>
-                </fieldset disabled>
-                <div class="form-group">
-                  <label for="pwd" class="control-label">Password:</label>
-                  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="請輸入密碼">
-                  </textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="sumbit" class="btn btn-primary">登入</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Modal End-->
+      <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+      </script>
       <!-- Custom JS for this -->
       <script>
         logining = false;
@@ -312,35 +280,7 @@ foreach ($arr as $i => $v) { if(!$register[$i]) {
           }
         }
       </script>
-      <!-- Modal -->
-      <div class="modal fade" id="LoginModalM" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="LoginModalLabel">帳戶登入</h4>
-            </div>
-            <div class="modal-body">
-              <form action="loginm.php" method="POST">
-                <div class="form-group">
-                  <label for="id" class="control-label">ID:</label>
-                  <input type="text" class="form-control" id="id" name="id" placeholder="請輸入ID">
-                </div>
-                <div class="form-group">
-                  <label for="pwd" class="control-label">Password:</label>
-                  <input type="password" class="form-control" id="pwd" name="pwd" placeholder="請輸入密碼">
-                  </textarea>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="sumbit" class="btn btn-primary">登入</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--Modal End-->
+
       <script src="./js/main.js"></script>
   </body>
 

@@ -45,6 +45,7 @@ $_SESSION['last_action'] = bin2hex(openssl_random_pseudo_bytes(128));
 
           <!-- Custom styles for this template -->
           <link href="./css/mainstyle.css" rel="stylesheet">
+          <link rel="import" href="./page/modals.php">
         </head>
 
         <body>
@@ -66,46 +67,14 @@ $_SESSION['last_action'] = bin2hex(openssl_random_pseudo_bytes(128));
               <?php include 'footer.php'; ?>
             </div>
             <!--container-->
-            <!-- Modal -->
-            <div class="modal fade" id="RegModal" tabindex="-1" role="dialog">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="LoginModalLabel">MAC註冊</h4>
-                  </div>
-                  <div class="modal-body">
-                    <form action="regmac.php" method="GET">
-                      <input type="hidden" name="mac" value=<?php echo '"' . $_GET[ 'mac'] . '"'; ?>>
-                      <input type="hidden" name="confirm" value=<?php echo '"' . hash( "sha512", $_SESSION[ 'last_action'] . 'regmac.php?mac=' . $_GET[ 'mac']) . '"' ?>>
-                      <fieldset disabled>
-                        <div class="form-group">
-                          <label for="username" class="control-label">User ID:</label>
-                          <input type="text" class="form-control" id="userid" value=<?php echo '"' . $_SESSION[ 'login'] . '"'; ?>>
-                        </div>
-                      </fieldset disabled>
-                      <fieldset disabled>
-                        <div class="form-group">
-                          <label for="username" class="control-label">Username:</label>
-                          <input type="text" class="form-control" id="username" value=<?php echo '"' . $_SESSION[ 'login_name'] . '"'; ?>>
-                        </div>
-                      </fieldset disabled>
-                      <fieldset disabled>
-                        <div class="form-group">
-                          <label for="mac" class="control-label">MAC:</label>
-                          <input type="text" class="form-control" id="mac" value=<?php echo '"' . $_GET[ 'mac'] . '"'; ?>>
-                        </div>
-                      </fieldset disabled>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.href='./index.php'">Close</button>
-                        <button type="sumbit" class="btn btn-primary">確認</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!--Modal End-->
+            <!-- Custom Modal for this -->
+             <script>
+              var link = document.querySelector('link[rel="import"]');
+              var content = link.import;
+               // Grab DOM from modals.html's document.
+              var el = content.querySelector('.modals');
+             document.body.appendChild(el.cloneNode(true));
+            </script>
             <script>
               $("#RegModal").modal('show');
             </script>

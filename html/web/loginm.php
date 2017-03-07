@@ -14,6 +14,7 @@
     <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="./css/mainstyle.css" rel="stylesheet">
+    <link rel="import" href="./page/modals.php">
   </head>
   <!-- Bootstrap core JavaScript
 ================================================== -->
@@ -28,73 +29,14 @@
   <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
   <!-- Custom JS for this -->
   <!--script src="XXX.js"></script-->
-  <!-- Modal -->
-  <div id="LoginSuccessModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 class="modal-title">登入狀態</h3>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <h1>登入成功!</h1>
-            <p><a href="./pay.php">3秒後跳轉，點我直接跳轉。</a></p>
-            <p></p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='./pay.php'">確認</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Modal End-->
-  <!-- Modal -->
-  <div id="AlreadyLoggedinModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 class="modal-title">登入狀態</h3>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <h1>您已經登入了!</h1>
-            <p></p>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='./index.php'">確認</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Modal End-->
-  <!-- Modal -->
-  <div id="LoginPasswordIncorrectModal" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h3 class="modal-title"></h3>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <h1>密碼錯誤!</h1>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='./index.php'">確認</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--Modal End-->
-
+  <!-- Custom Modal for this -->
+      <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+      </script>
   </body>
 
   </html>
@@ -104,8 +46,15 @@ if(isset($_SESSION['login'])) {
     ?>
     <!DOCTYPE html>
     <html>
-
+    <head><link rel="import" href="./page/modals.php"></head>
     <body>
+      <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+      </script>
       <script>
         //alert("您已經登入");
         //window.location.replace("index.php");
@@ -136,8 +85,16 @@ else {
         ?>
       <!DOCTYPE html>
       <html>
-
+      <head><link rel="import" href="./page/modals.php"></head>
       <body>
+      <!-- Custom Modal for this -->
+        <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+      </script>
         <script>
           //alert("登入成功");
           //window.location.replace("index.php");
@@ -157,8 +114,16 @@ else {
         ?>
         <!DOCTYPE html>
         <html>
-
+        <head><link rel="import" href="./page/modals.php"></head>
         <body>
+        <!-- Custom Modal for this -->
+        <script>
+        var link = document.querySelector('link[rel="import"]');
+        var content = link.import;
+        // Grab DOM from modals.html's document.
+        var el = content.querySelector('.modals');
+        document.body.appendChild(el.cloneNode(true));
+        </script>
           <script>
             //alert("帳號密碼錯誤");
             //window.location.replace("index.php");
