@@ -35,11 +35,7 @@ if($_GET['id'] !== hash( 'sha512', $_SESSION['last_action'] . 'detail_send.php?c
     </html>
     <?php
 }
-$conn = new mysqli("db", "pi", "pi", "pi");
-mysqli_set_charset($conn, "utf8");
-if ($conn->connect_error) {
-    die("DB Connection failed: " . $conn->connect_error);
-}
+include 'db.php';
 $sql = "SELECT * FROM clients WHERE clientID = " . $_POST['clientID'] . " AND id = \"" . $_POST['id'] . "\"";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {

@@ -31,13 +31,7 @@ if(isset($_SESSION['login'])) {
     </html>
     <?php
     }
-    $conn = new mysqli("db", "pi", "pi", "pi");
-    
-    // Check connection
-    if ($conn->connect_error) {
-        die("DB Connection failed: " . $conn->connect_error);
-    }
-    mysqli_set_charset($conn, "utf8");
+    include 'db.php';
     $sql = "SELECT tableName FROM activity WHERE id = " . $_GET["aid"];
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();

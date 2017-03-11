@@ -35,13 +35,7 @@ if(isset($_SESSION['login'])) {
 
             <tbody>
               <?php
-    $conn = new mysqli("db", "pi", "pi", "pi");
-    
-    // Check connection
-    if ($conn->connect_error) {
-        die("DB Connection failed: " . $conn->connect_error);
-    }
-    mysqli_set_charset($conn, "utf8");
+    include 'db.php';
     $sql = "SELECT id, title, cost, tableName, durationStart, durationEnd FROM activity WHERE CURDATE() >= durationStart AND CURDATE() <= durationEnd";
     $result = $conn->query($sql);
     $no = 1;

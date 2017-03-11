@@ -69,11 +69,7 @@ if(isset($_SESSION['login'])) {
     <?php
 }
 else {
-    $conn = new mysqli("db", "pi", "pi", "pi");
-    mysqli_set_charset($conn, "utf8");
-    if ($conn->connect_error) {
-        die("DB Connection failed: " . $conn->connect_error);
-    }
+    include 'db.php';
     $sql = "SELECT clientID, name FROM clients WHERE id = \"" . $_POST["id"] . "\" AND pw = \"" . $_POST["pwd"] . "\"";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {

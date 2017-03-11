@@ -59,13 +59,7 @@ function cmp($a, $b)
 }
 usort($arr, "cmp");
 // Create connection
-$conn = new mysqli("db", "pi", "pi", "pi");
-
-// Check connection
-if ($conn->connect_error) {
-    die("DB Connection failed: " . $conn->connect_error);
-}
-mysqli_set_charset($conn, "utf8");
+include 'db.php';
 foreach ($arr as $i => $v) {
     $sql = "SELECT name, phone, id, clients.clientID FROM mac2client INNER JOIN clients ON clients.clientID = mac2client.clientID WHERE mac = \"" . $v[0] . "\"";
     $result = $conn->query($sql);
