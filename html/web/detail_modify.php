@@ -30,36 +30,42 @@ if(isset($_SESSION['login'])) {
         die("DB Connection failed: " . $conn->connect_error);
     }
     mysqli_set_charset($conn, "utf8");
-    $sql = "SELECT name, phone, id FROM clients WHERE clientID = \"" . $_SESSION['login'] . "\"";
+    $sql = "SELECT clientID, name, phone, id FROM clients WHERE clientID = \"" . $_SESSION['login'] . "\"";
     $result = $conn->query($sql);
     $row = $result->fetch_assoc();
     $conn->close();
+    $_SESSION['last_action'] = bin2hex(openssl_random_pseudo_bytes(128));
     ?>
-              <table class="table table-striped">
-                <tbody>
-                  <tr>
-                    <td><b>姓名</b></td>
-                    <td>
-                      <?php echo $row["name"] ; ?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><b>手機號碼</b></td>
-                    <td>
-                      <?php echo $row["phone"] ; ?>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><b>身分證字號</b></td>
-                    <td>
-                      <?php echo $row["id"] ; ?>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+              <form method="POST" action="detail_send.php?id=<?php echo hash( 'sha512', $_SESSION[ 'last_action'] . 'detail_send.php?clientID=' . $row[ 'clientID'] . '&id=' . $row[ 'id']); ?>">
+                <input type="hidden" name="clientID" value=<?php echo '"' . $row[ "clientID"] . '"' ; ?> />
+                <input type="hidden" name="id" value=<?php echo '"' . $row[ "id"] . '"' ; ?> />
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td><b>姓名</b></td>
+                      <td>
+                        <input type="text" name="newname" value=<?php echo '"' . $row[ "name"] . '"' ; ?> />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>手機號碼</b></td>
+                      <td>
+                        <input type="text" name="newphone" value=<?php echo '"' . $row[ "phone"] . '"' ; ?> />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><b>身分證字號</b></td>
+                      <td>
+                        <?php echo $row["id"] ; ?>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <input type="submit" value="確認修改" />
+              </form>
           </div>
           <hr />
-          <a href="detail_modify.php">修改資料</a>
+          <a href="detail.php">返回檢視</a>
           <hr />
         </main>
         <?php include 'footer.php'; ?>
@@ -92,4 +98,3 @@ else {
     <?php
 }
 ?>
-      <?php $_SESSION['last_action'] = bin2hex(openssl_random_pseudo_bytes(128)); ?>
