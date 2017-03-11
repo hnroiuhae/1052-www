@@ -96,31 +96,6 @@
           </div>
         </div>
       </div>
-      <!-- CheckPayModal -->
-      <div id="CheckPayModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <form action="paid.php" method="GET">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">付款確認</h3>
-              </div>
-              <div class="modal-body">
-                <input type="hidden" class="form-control" id="aid" name="aid" value="" />
-                <input type="hidden" class="form-control" id="confirm" name="confirm" value="" />
-                <div class="form-group">
-                  <h1>您確認要付款嗎?</h1>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='./pay.php' ">關閉</button>
-                <button type="submit" class="btn btn-primary btn-lg" onclick="">確認</button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
       <!-- NoLoginModal -->
       <div id="NoLoginModal" class="modal fade" role="dialog">
         <div class="modal-dialog modal-lg">
@@ -138,70 +113,6 @@
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='./index.php'">確認</button>
             </div>
-          </div>
-        </div>
-      </div>
-            <!-- RegModal -->
-            <div class="modal fade" id="RegModal" tabindex="-1" role="dialog">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="LoginModalLabel">MAC註冊</h4>
-                  </div>
-                  <div class="modal-body">
-                    <form action="regmac.php" method="GET">
-                      <input type="hidden" name="mac" value=<?php echo '"' . $_GET[ 'mac'] . '"'; ?>>
-                      <input type="hidden" name="confirm" value=<?php echo '"' . hash( "sha512", $_SESSION[ 'last_action'] . 'regmac.php?mac=' . $_GET[ 'mac']) . '"' ?>>
-                      <fieldset disabled>
-                        <div class="form-group">
-                          <label for="username" class="control-label">User ID:</label>
-                          <input type="text" class="form-control" id="userid" value=<?php echo '"' . $_SESSION[ 'login'] . '"'; ?>>
-                        </div>
-                      </fieldset disabled>
-                      <fieldset disabled>
-                        <div class="form-group">
-                          <label for="username" class="control-label">Username:</label>
-                          <input type="text" class="form-control" id="username" value=<?php echo '"' . $_SESSION[ 'login_name'] . '"'; ?>>
-                        </div>
-                      </fieldset disabled>
-                      <fieldset disabled>
-                        <div class="form-group">
-                          <label for="mac" class="control-label">MAC:</label>
-                          <input type="text" class="form-control" id="mac" value=<?php echo '"' . $_GET[ 'mac'] . '"'; ?>>
-                        </div>
-                      </fieldset disabled>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.href='./index.php'">Close</button>
-                        <button type="sumbit" class="btn btn-primary">確認</button>
-                      </div>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            </div>
-      <!-- CheckGetModal -->
-      <div id="CheckGetModal" class="modal fade" role="dialog">
-        <div class="modal-dialog modal-lg">
-          <!-- Modal content-->
-          <div class="modal-content">
-            <form action="got.php" method="GET">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">領酒確認</h3>
-              </div>
-              <div class="modal-body">
-                <input type="hidden" class="form-control" id="aid" name="aid" value="" />
-                <input type="hidden" class="form-control" id="confirm" name="confirm" value="" />
-                <div class="form-group">
-                  <h1>您確認要領酒嗎?</h1>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='./get.php' ">關閉</button>
-                <button type="submit" class="btn btn-primary btn-lg" onclick="">確認</button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
@@ -268,5 +179,113 @@
       </div>
     </div>
   </div>
-  
+  <!-- Logout -->
+  <div id="LogoutModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title"></h3>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <h1>您已登出!</h1>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary btn-lg" onclick="window.location.href='./index.php'">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+        <!-- CheckPayModal -->
+      <div id="CheckPayModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <form action="paid.php" method="GET">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">付款確認</h3>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" class="form-control" id="aid" name="aid" value="" />
+                <input type="hidden" class="form-control" id="confirm" name="confirm" value="" />
+                <div class="form-group">
+                  <h1>您確認要付款嗎?</h1>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='./pay.php' ">關閉</button>
+                <button type="submit" class="btn btn-primary btn-lg" onclick="">確認</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- CheckGetModal -->
+      <div id="CheckGetModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <form action="got.php" method="GET">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">領酒確認</h3>
+              </div>
+              <div class="modal-body">
+                <input type="hidden" class="form-control" id="aid" name="aid" value="" />
+                <input type="hidden" class="form-control" id="confirm" name="confirm" value="" />
+                <div class="form-group">
+                  <h1>您確認要領酒嗎?</h1>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-lg" data-dismiss="modal" onclick="window.location.href='./get.php' ">關閉</button>
+                <button type="submit" class="btn btn-primary btn-lg" onclick="">確認</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+              <!-- RegModal -->
+            <div class="modal fade" id="RegModal" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="LoginModalLabel">MAC註冊</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form action="regmac.php" method="GET">
+                      <input type="hidden" name="mac" value=<?php echo '"' . $_GET[ 'mac'] . '"'; ?>>
+                      <input type="hidden" name="confirm" value=<?php echo '"' . hash( "sha512", $_SESSION[ 'last_action'] . 'regmac.php?mac=' . $_GET[ 'mac']) . '"' ?>>
+                      <fieldset disabled>
+                        <div class="form-group">
+                          <label for="username" class="control-label">User ID:</label>
+                          <input type="text" class="form-control" id="userid" value=<?php echo '"' . $_SESSION[ 'login'] . '"'; ?>>
+                        </div>
+                      </fieldset disabled>
+                      <fieldset disabled>
+                        <div class="form-group">
+                          <label for="username" class="control-label">Username:</label>
+                          <input type="text" class="form-control" id="username" value=<?php echo '"' . $_SESSION[ 'login_name'] . '"'; ?>>
+                        </div>
+                      </fieldset disabled>
+                      <fieldset disabled>
+                        <div class="form-group">
+                          <label for="mac" class="control-label">MAC:</label>
+                          <input type="text" class="form-control" id="mac" value=<?php echo '"' . $_GET[ 'mac'] . '"'; ?>>
+                        </div>
+                      </fieldset disabled>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" onclick="window.location.href='./index.php'">Close</button>
+                        <button type="sumbit" class="btn btn-primary">確認</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
 </div>
