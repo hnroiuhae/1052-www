@@ -1,23 +1,33 @@
 <!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="./img/icon_linux.png">
+  <title>金門領酒系統</title>
+  <!-- Bootstrap core CSS -->
+  <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  <link href="./css/mainstyle.css" rel="stylesheet">
+  <link rel="import" href="./page/modals.php">
+</head>
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="../assets/js/vendor/jquery-3.1.1.slim.min.js"></script>
+<script>
+  window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')
+</script>
+<script src="../assets/js/vendor/tether.min.js"></script>
+<script src="../dist/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+<!-- Custom JS for this -->
+<!--script src="XXX.js"></script-->
+</html>
 <?php session_start(); ?>
-
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!--<meta http-equiv="refresh" content="10">-->
-    <link rel="icon" href="./img/icon_linux.png">
-    <title>金門領酒系統</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="./css/mainstyle.css" rel="stylesheet">
-    <link rel="import" href="./page/modals.php">
-  </head>
-
   <body>
     <?php include 'nav.php'; ?>
       <div class="container">
@@ -248,19 +258,6 @@ foreach ($arr as $i => $v) { if(!$register[$i]) {
         <?php include 'footer.php'; ?>
       </div>
       <!--/.container-->
-      <!-- Bootstrap core JavaScript
-================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      <script src="../assets/js/vendor/jquery-3.1.1.slim.min.js"></script>
-      <script>
-        window.jQuery || document.write('<script src="../assets/js/vendor/jquery.min.js"><\/script>')
-      </script>
-      <script src="../assets/js/vendor/tether.min.js"></script>
-      <script src="../dist/js/bootstrap.min.js"></script>
-      <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-      <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
-      <!-- Custom JS for this -->
-      <!--script src="XXX.js"></script-->
       <!-- Custom Modal for this -->
       <script>
         var link = document.querySelector('link[rel="import"]');
